@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lingo — Every language, one conversation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header class="nav">
+  <a href="#top" class="nav__brand">Lingo</a>
+  <nav class="nav__links">
+    <a href="#how">How it works</a>
+    <a href="#tools">Tools</a>
+    <a href="#team">Team</a>
+  </nav>
+  <a class="nav__cta" href="https://github.com/" target="_blank" rel="noopener">View on GitHub</a>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="hero__scripts" aria-hidden="true">
+      <span data-script="0">你好</span>
+      <span data-script="1">नमस्ते</span>
+      <span data-script="2">مرحبا</span>
+      <span data-script="3">Привет</span>
+      <span data-script="4">こんにちは</span>
+      <span data-script="5">Hello</span>
+    </div>
+    <h1 class="hero__title">Every language,<br>one conversation.</h1>
+    <p class="hero__subtitle">Lingo translates any language into English — voice, gesture, or image — and it doesn't stop at phonetic scripts. Speak, sign, or point a camera; Lingo understands the intent, not just the words.</p>
+    <div class="hero__actions">
+      <a href="#demo" class="btn btn--primary">Try the demo</a>
+      <a href="#how" class="btn btn--ghost">See how it works</a>
+    </div>
+  </section>
+
+  <section class="problem">
+    <p class="problem__label">The problem</p>
+    <p class="problem__text">Miscommunication isn't a vocabulary gap — it's a barrier that keeps people from understanding each other at all. Most translation tools handle typed text in a handful of major languages. Spoken dialects, sign gesture, and non-phonetic scripts are often left out entirely.</p>
+  </section>
+
+  <section id="demo" class="demo">
+    <p class="section-eyebrow">Try it</p>
+    <h2 class="section-title">Give Lingo something to translate</h2>
+    <div class="demo__panel">
+      <div class="demo__input-select" role="tablist" aria-label="Input type">
+        <button class="demo__tab is-active" data-input="text" role="tab" aria-selected="true">Text</button>
+        <button class="demo__tab" data-input="audio" role="tab" aria-selected="false">Audio</button>
+        <button class="demo__tab" data-input="image" role="tab" aria-selected="false">Image</button>
+      </div>
+      <div class="demo__body">
+        <div class="demo__field" data-field="text">
+          <textarea id="demoText" placeholder="Type a phrase in any language…" rows="3">你好，很高兴认识你</textarea>
+        </div>
+        <div class="demo__field is-hidden" data-field="audio">
+          <div class="demo__mock-upload">🎙️ audio_clip.wav <span>— mock upload, no file needed for this demo</span></div>
+        </div>
+        <div class="demo__field is-hidden" data-field="image">
+          <div class="demo__mock-upload">🖼️ sign_photo.jpg <span>— mock upload, no file needed for this demo</span></div>
+        </div>
+        <button id="translateBtn" class="btn btn--primary demo__go">Translate to English</button>
+        <div id="demoOutput" class="demo__output" aria-live="polite"></div>
+      </div>
+    </div>
+    <p class="demo__note">This calls the Flask <code>/translate</code> endpoint in <code>app.py</code> — currently mock logic, ready to be swapped for a real model.</p>
+  </section>
+
+  <section id="how" class="workflow">
+    <p class="section-eyebrow">How it works</p>
+    <h2 class="section-title">Three steps, one translation</h2>
+    <ol class="workflow__list">
+      <li class="workflow__step">
+        <span class="workflow__num">1</span>
+        <h3>Input</h3>
+        <p>The user provides audio, text, or an image — whatever form the message is already in.</p>
+      </li>
+      <li class="workflow__step">
+        <span class="workflow__num">2</span>
+        <h3>AI processing</h3>
+        <p>Lingo identifies the source language, then draws on its understanding of that language to interpret meaning rather than translate word-for-word.</p>
+      </li>
+      <li class="workflow__step">
+        <span class="workflow__num">3</span>
+        <h3>Output</h3>
+        <p>Lingo returns English text that carries the intent of the original message — a translation or a transcript, depending on the input.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section id="tools" class="tools">
+    <p class="section-eyebrow">Under the hood</p>
+    <h2 class="section-title">Built on</h2>
+    <div class="tools__grid">
+      <div class="tools__card">
+        <h3>Speech &amp; gesture recognition</h3>
+        <p>Understands spoken language and physical gesture as valid input, not just typed text.</p>
+      </div>
+      <div class="tools__card">
+        <h3>Speech &amp; image generation</h3>
+        <p>Produces spoken or written English output depending on what the situation calls for.</p>
+      </div>
+      <div class="tools__card">
+        <h3>Gemini &amp; open source</h3>
+        <p>Combines Google's Gemini with open source components, kept flexible as the project grows.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="team" class="team">
+    <p class="section-eyebrow">Behind Lingo</p>
+    <h2 class="section-title">The team</h2>
+    <ul class="team__list">
+      <li>Jerome Gabriel Ricablanca</li>
+      <li>Martin Regalado</li>
+      <li>Lenard Remus Yu</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <span>Lingo — AI Project Proposal, 2026</span>
+</footer>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
